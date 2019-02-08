@@ -13,7 +13,7 @@ class PracticeIcon extends Component {
 		if (this.props.break === 'true')
 		{
 			iconStyle= {
-				float: 'left',
+				float:'left',
 				margin: '30px',
 				clear: 'both'
 			}
@@ -33,10 +33,10 @@ class PracticeIcon extends Component {
 		}
 
 		return (
-			<div style={iconStyle}>
+			<span style={iconStyle}>
 				<img src={iconURL} alt="{this.props.icon}" className="iconImage" onClick={() => {this.goToPractice(this.props.identifier)}} /><br/>
 				{this.props.name}
-			</div>
+			</span>
 		);
 	}
 }

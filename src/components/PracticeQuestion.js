@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 
 class PracticeQuestion extends Component {
 
@@ -10,7 +11,7 @@ class PracticeQuestion extends Component {
 	}
 
 	componentWillMount() {
-		if (this.props.selectedAnswer === 1) {
+		if (this.props.selectedAnswer === "1") {
 			this.setState({'class': 'questionStyle_correct'});
 		} else {
 			this.setState({'class': 'questionStyle'});
@@ -19,19 +20,12 @@ class PracticeQuestion extends Component {
 
 	onAnswerChange(event) {
 
-		const options = {
-      		method: 'PUT',
-      		headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
-      		body: 'Selected_answer=' + event.target.value
-    	}
+		var firestore = firebase.firestore();
 
-    	fetch('http://localhost:3000/question/' + event.target.id, options)
-    		.then(results => {
-    			this.props.callbackMethod("question");
-    		})
-      		.catch(function(error) {
-        		console.log('Looks like there was a problem: \n', error);
-      		})
+		var questionRef = firestore.doc("teams/" + this.props.teamId + "/practiceInstances/" + this.props.practiceId + "/questions/" + this.props._id)
+		questionRef.update({'answer':event.target.value}).then(result => {
+			this.props.callbackMethod("question");
+		});
 
       	if (event.target.value === '1') {
 			this.setState({'class': 'questionStyle_correct'});
@@ -42,7 +36,7 @@ class PracticeQuestion extends Component {
 
 	render() {
 
-		var answerList = this.props.answers.split('|');
+		var answerList = this.props.answers;
 
 		const selectedAnswer = this.props.selectedAnswer;
 

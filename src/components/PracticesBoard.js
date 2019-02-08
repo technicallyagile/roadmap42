@@ -1,35 +1,16 @@
 import React, { Component } from 'react';
 import Level from './Level.js';
+import * as firebase from 'firebase';
 
 class PracticesBoard extends Component {
-
-	initializeFirestore() {
-		const firebase = require("firebase");
-		// Required for side-effects
-		require("firebase/firestore");
-
-		var config = {
-			apiKey: "AIzaSyDbWMv3XXasGcyt2POIRUkIdNQ9DEwg3JQ",
-			authDomain: "roadmap42.firebaseapp.com",
-			databaseURL: "https://roadmap42.firebaseio.com",
-			projectId: "roadmap42",
-			storageBucket: "roadmap42.appspot.com",
-			messagingSenderId: "132990042285"
-		};
-
-		if (!firebase.apps.length) {
-			firebase.initializeApp(config);
-		}
-
-		return firebase.firestore();
-	}
 
 	constructor(props) {
 		super(props);
 		this.state = {levels:[], teamName: null, }
 
-		var firestore = this.initializeFirestore();
-
+		var firestore = firebase.firestore();
+        const fSettings = {timestampsInSnapshots: true};
+        firestore.settings(fSettings);
 		const docRef = firestore.doc("teams/" + this.props.arg);
 
 		docRef.get().then(doc => {

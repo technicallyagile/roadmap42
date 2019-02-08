@@ -4,18 +4,31 @@ body {
   font-family: sans-serif;
 }
 
+img.screenImage {
+	float: left;
+	margin: 0px 10px 0px 10px;
+}
+
+div.homeContent {
+	background-color: #9ca; 
+	width: 700px; 
+	margin: auto;
+	padding: 10px;
+}
+
 div.practiceBoard {
 	margin: 0 auto;
 	align-content: center;
 }
 
 div.levelClear {
-	clear: both;
+	clear:both;
 }
 
 div.centered {
 	text-align: 'center';
 	margin: 'auto';
+	display: inline-block;
 }
 
 div.detailArea {
@@ -57,6 +70,64 @@ img.detailIconImage {
 	margin: 15px;
 }
 
+div.createTeamButton {
+	border-radius: 3px;
+	border-color: darkgreen;
+	border-width: 1px;
+	border-style: solid;
+	font-weight: bold;
+	font-size: 1.7em;
+	color: white;
+	background-color:#8c8;
+	width:300px;
+	cursor: pointer;
+	margin: auto;
+}
+
+div.teamIcon {
+	border-radius: 3px;
+	border: 1px solid darkgray;
+	font-weight: bold;
+	font-size:1.3em;
+	background-color:#ccc;
+	width: 250px;
+	cursor: pointer;
+	margin:auto;
+	padding: 8px;
+}
+
+div.sign-in {
+	float: right;
+	font-size: 0.8em;
+}
+
+div.teamListDiv {
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+div.teamButtonDiv {
+	margin: 10px;
+}
+
+div.centerBox {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+}
+
+span.formLabel {
+	font-size: 0.7em;
+}
+
+.newTeamEntry {
+	width: 100%;
+	font-size: 1.5em;
+}
+
 .detailTitle {
 	margin-top: 25px;
 	font-size: 2em;
@@ -77,3 +148,4 @@ img.detailIconImage {
 	text-align: left;
 	margin-top: 1px;
 }
+
