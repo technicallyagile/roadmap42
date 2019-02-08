@@ -33,7 +33,7 @@ class AddTeam extends Component {
 
 			this.setState({'practicesToAdd':practicesAdding, 'result':'Success'});
 		}).catch(function (error) {
-			this.setState('result':'Failed');
+			this.setState({'result':'Failed'});
 			console.log("Got an error: ", error);
 		});
 

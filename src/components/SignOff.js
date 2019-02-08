@@ -12,7 +12,7 @@ class SignOff extends Component {
 	{
 		firebase.auth().onAuthStateChanged( function(user) {
 	      if (!user) {
-	      	this.setState({'loggedIn':'You have been successfully logged out.'});
+	      	this.setState({loggedIn:'You have been successfully logged out.'});
 	      }
 	    }.bind(this));
 
